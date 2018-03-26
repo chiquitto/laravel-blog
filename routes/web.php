@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/categorias', 'CategoriaController@listar');
-Route::get('/admin/categorias/novo-form', 'CategoriaController@novoForm');
-Route::post('/admin/categorias/novo', 'CategoriaController@novo');
+Route::get('/admin/categoria', [
+    'as' => 'categoria-listar',
+    'uses' => 'CategoriaController@listar'
+]);
+Route::get('/admin/categoria/novo-form', [
+    'as' => 'categoria-novo-form',
+    'uses' => 'CategoriaController@novoForm'
+]);
+
+Route::post('/admin/categoria/novo', [
+    'as' => 'categoria-novo',
+    'uses' => 'CategoriaController@novo'
+]);

@@ -1,6 +1,6 @@
 <h1>Nova categoria</h1>
 
-<form method="post" action="/admin/categorias/novo">
+<form method="post" action="{{ route('categoria-novo') }}">
 
     <input
             type="hidden"

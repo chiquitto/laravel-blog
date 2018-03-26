@@ -1,7 +1,7 @@
 <h1>Categorias</h1>
 
 <p>
-    [<a href="/admin/categorias/novo-form">Nova categoria</a>]
+    [<a href="{{ route('categoria-novo-form') }}">Nova categoria</a>]
 </p>
 
 <table>

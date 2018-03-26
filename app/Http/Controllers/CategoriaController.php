@@ -15,7 +15,7 @@ class CategoriaController extends Controller
             'categorias' => $categorias
         ];
 
-        return view('categoria-listar', $data);
+        return view('categoria.listar', $data);
     }
 
     public function novoForm() {
@@ -34,6 +34,6 @@ class CategoriaController extends Controller
 
         $categoria->save();
 
-        return redirect('/admin/categorias');
+        return redirect()->route('categoria-listar');
     }
 }
