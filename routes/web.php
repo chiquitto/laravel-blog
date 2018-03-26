@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/categorias', 'CategoriaController@listar');
+Route::get('/admin/categorias/novo-form', 'CategoriaController@novoForm');
+Route::post('/admin/categorias/novo', 'CategoriaController@novo');
