@@ -20,15 +20,26 @@ class DatabaseSeeder extends Seeder
 class CategoriaTableSeeder extends Seeder {
 
     public function run() {
-        $sql = 'insert into categorias
-        (categoria, descricao, situacao, created_at, updated_at)
-values (?,?,?,?,?)';
+        $categoriaJogos = new Categoria([
+            'categoria' => 'Jogos',
+            'descricao' => 'Jogos',
+            'situacao' => Categoria::SITUACAO_ATIVO,
+        ]);
+        $categoriaJogos->save();
 
-        $agora = date('Y-m-d H:i:s');
+        $categoriaPolitica = new Categoria([
+            'categoria' => 'Politica',
+            'descricao' => 'Politica',
+            'situacao' => Categoria::SITUACAO_ATIVO,
+        ]);
+        $categoriaPolitica->save();
 
-        DB::insert($sql, ['Jogos', 'Jogos', Categoria::SITUACAO_ATIVO, $agora, $agora]);
-        DB::insert($sql, ['Política', 'Política', Categoria::SITUACAO_ATIVO, $agora, $agora]);
-        DB::insert($sql, ['Esportes', 'Esportes', Categoria::SITUACAO_INATIVO, $agora, $agora]);
+        $categoriaEsportes = new Categoria([
+            'categoria' => 'Esportes',
+            'descricao' => 'Esportes',
+            'situacao' => Categoria::SITUACAO_INATIVO,
+        ]);
+        $categoriaEsportes->save();
     }
 
 }
