@@ -19,12 +19,22 @@ Route::get('/admin/categoria', [
     'as' => 'categoria-listar',
     'uses' => 'CategoriaController@listar'
 ]);
+
 Route::get('/admin/categoria/novo-form', [
     'as' => 'categoria-novo-form',
     'uses' => 'CategoriaController@novoForm'
 ]);
 
+Route::get('/admin/categoria/editar-form/{id}', [
+    'as' => 'categoria-editar-form',
+    'uses' => 'CategoriaController@editarForm'
+]);
+
 Route::post('/admin/categoria/novo', [
     'as' => 'categoria-novo',
     'uses' => 'CategoriaController@novo'
+]);
+Route::post('/admin/categoria/editar/{id}', [
+    'as' => 'categoria-editar',
+    'uses' => 'CategoriaController@editar'
 ]);

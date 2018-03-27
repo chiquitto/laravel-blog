@@ -20,7 +20,7 @@
         <td>{{ $categoria->id }}</td>
         <td>{{ $categoria->categoria }}</td>
         <td>
-            [<a href="#">Editar</a>]
+            [<a href="{{ route('categoria-editar-form', ['id' => $categoria->id]) }}">Editar</a>]
             [<a href="#">Apagar</a>]
         </td>
     </tr>
