@@ -53,8 +53,20 @@ class CategoriaController extends Controller
 
         $categoria->setAttribute('categoria', $request->get('categoria'));
         $categoria->setAttribute('descricao', $request->get('descricao'));
-        
+
         $categoria->save();
+
+        return redirect()->route('categoria-listar');
+
+    }
+
+    public function apagar(Request $request) {
+
+        $id = $request->route('id');
+
+        /** @var Categoria $categoria */
+        $categoria = Categoria::find($id);
+        $categoria->delete();
 
         return redirect()->route('categoria-listar');
 

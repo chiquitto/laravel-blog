@@ -21,7 +21,7 @@
         <td>{{ $categoria->categoria }}</td>
         <td>
             [<a href="{{ route('categoria-editar-form', ['id' => $categoria->id]) }}">Editar</a>]
-            [<a href="#">Apagar</a>]
+            [<a href="{{ route('categoria-apagar', ['id' => $categoria->id]) }}">Apagar</a>]
         </td>
     </tr>
     @endforeach

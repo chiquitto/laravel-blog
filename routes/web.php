@@ -30,6 +30,11 @@ Route::get('/admin/categoria/editar-form/{id}', [
     'uses' => 'CategoriaController@editarForm'
 ]);
 
+Route::get('/admin/categoria/apagar/{id}', [
+    'as' => 'categoria-apagar',
+    'uses' => 'CategoriaController@apagar'
+]);
+
 Route::post('/admin/categoria/novo', [
     'as' => 'categoria-novo',
     'uses' => 'CategoriaController@novo'
