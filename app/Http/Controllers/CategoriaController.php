@@ -3,6 +3,7 @@
 namespace Blog\Http\Controllers;
 
 use Blog\Categoria;
+use Blog\Http\Requests\CategoriasRequest;
 use Request;
 
 class CategoriaController extends Controller
@@ -22,18 +23,15 @@ class CategoriaController extends Controller
         return view('categoria.novo-form');
     }
 
-    public function novo() {
-
-        $categoriaInput = Request::input('categoria');
-        $descricaoInput = Request::input('descricao');
+    public function novo(CategoriasRequest $request) {
 
         $categoria = new Categoria();
-        $categoria->setAttribute('categoria', $categoriaInput);
-        $categoria->setAttribute('descricao', $descricaoInput);
+        $categoria->setAttribute('categoria', $request->get('categoria'));
+        $categoria->setAttribute('descricao', $request->get('descricao'));
         $categoria->setAttribute('situacao', Categoria::SITUACAO_ATIVO);
-
         $categoria->save();
 
         return redirect()->route('categoria-listar');
+
     }
 }
