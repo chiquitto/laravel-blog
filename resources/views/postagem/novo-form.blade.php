@@ -21,7 +21,7 @@
             <option value="0">Selecione uma opção</option>
 
             @foreach ($categorias as $categoria)
-                <option value="{{ $categoria->idCategoria }}">{{ $categoria->categoria }}</option>
+                <option value="{{ $categoria->idCategoria }}" {{ (old("idCategoria") == $categoria->idCategoria ? "selected":"") }}>{{ $categoria->categoria }}</option>
             @endforeach
 
         </select></p>

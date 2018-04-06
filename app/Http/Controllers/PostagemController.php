@@ -3,6 +3,7 @@
 namespace Blog\Http\Controllers;
 
 use Blog\Categoria;
+use Blog\Http\Requests\PostagemRequest;
 use Blog\Postagem;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class PostagemController extends Controller
         ]);
     }
 
-    public function novo(Request $request) {
+    public function novo(PostagemRequest $request) {
 
         $postagem = new Postagem();
         $postagem->setAttribute('idCategoria', $request->get('idCategoria'));
