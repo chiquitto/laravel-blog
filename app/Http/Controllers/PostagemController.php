@@ -10,7 +10,8 @@ class PostagemController extends Controller
 {
     public function listar()
     {
-        $postagens = Postagem::all();
+        // $postagens = Postagem::all();
+        $postagens = Postagem::with('categoria')->get();
 
         $data = [
             'postagens' => $postagens
