@@ -15,8 +15,8 @@
             name="_token"
             value="{{{ csrf_token() }}}" />
 
-    <p>Categoria: <input type="text" name="categoria" value="{{ $categoria->categoria }}"></p>
-    <p>Descrição: <textarea name="descricao">{{ $categoria->descricao }}</textarea></p>
+    <p>Categoria: <input type="text" name="categoria" value="{{ old('categoria', $categoria->categoria) }}"></p>
+    <p>Descrição: <textarea name="descricao">{{ old('descricao', $categoria->descricao) }}</textarea></p>
 
     <input type="submit" value="Salvar">
 
