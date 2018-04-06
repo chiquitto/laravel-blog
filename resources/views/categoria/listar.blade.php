@@ -17,11 +17,11 @@
 
     @foreach ($categorias as $categoria)
     <tr>
-        <td>{{ $categoria->id }}</td>
+        <td>{{ $categoria->idCategoria }}</td>
         <td>{{ $categoria->categoria }}</td>
         <td>
-            [<a href="{{ route('categoria-editar-form', ['id' => $categoria->id]) }}">Editar</a>]
-            [<a href="{{ route('categoria-apagar', ['id' => $categoria->id]) }}">Apagar</a>]
+            [<a href="{{ route('categoria-editar-form', ['id' => $categoria->idCategoria]) }}">Editar</a>]
+            [<a href="{{ route('categoria-apagar', ['id' => $categoria->idCategoria]) }}">Apagar</a>]
         </td>
     </tr>
     @endforeach

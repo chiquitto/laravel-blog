@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Blog\Categoria;
+use Blog\Postagem;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(CategoriaTableSeeder::class);
+        $this->call(PostagemTableSeeder::class);
     }
 }
 
@@ -40,6 +42,20 @@ class CategoriaTableSeeder extends Seeder {
             'situacao' => Categoria::SITUACAO_INATIVO,
         ]);
         $categoriaEsportes->save();
+    }
+
+}
+
+class PostagemTableSeeder extends Seeder {
+
+    public function run() {
+        $postagem1 = new Postagem([
+            'idCategoria' => 1,
+            'titulo' => 'Jogos de computador facilitam o aprendizado',
+            'texto' => 'Pesquisa aponta que jogos de computador facilitam o aprendizado',
+            'situacao' => Postagem::SITUACAO_ATIVO,
+        ]);
+        $postagem1->save();
     }
 
 }

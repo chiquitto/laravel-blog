@@ -8,7 +8,7 @@
 </ul>
 @endif
 
-<form method="post" action="{{ route('categoria-editar', ['id' => $categoria->id]) }}">
+<form method="post" action="{{ route('categoria-editar', ['id' => $categoria->idCategoria]) }}">
 
     <input
             type="hidden"
