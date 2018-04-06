@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/categoria', [
+Route::get('/admin/categorias', [
     'as' => 'categoria-listar',
     'uses' => 'CategoriaController@listar'
 ]);
@@ -42,4 +42,9 @@ Route::post('/admin/categoria/novo', [
 Route::post('/admin/categoria/editar/{id}', [
     'as' => 'categoria-editar',
     'uses' => 'CategoriaController@editar'
+]);
+
+Route::get('/admin/postagens', [
+    'as' => 'postagem-listar',
+    'uses' => 'PostagemController@listar'
 ]);
