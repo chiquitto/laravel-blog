@@ -48,3 +48,13 @@ Route::get('/admin/postagens', [
     'as' => 'postagem-listar',
     'uses' => 'PostagemController@listar'
 ]);
+
+Route::get('/admin/postagem/novo-form', [
+    'as' => 'postagem-novo-form',
+    'uses' => 'PostagemController@novoForm'
+]);
+
+Route::post('/admin/postagem/novo', [
+    'as' => 'postagem-novo',
+    'uses' => 'PostagemController@novo'
+]);

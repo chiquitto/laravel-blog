@@ -1,7 +1,7 @@
 <h1>Postagens</h1>
 
 <p>
-    [<a href="{{ route('categoria-novo-form') }}">Nova postagem</a>]
+    [<a href="{{ route('postagem-novo-form') }}">Nova postagem</a>]
 </p>
 
 <table>
