@@ -15,46 +15,58 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/categorias', [
-    'as' => 'categoria-listar',
-    'uses' => 'CategoriaController@listar'
-]);
+Route::prefix('admin')
+    ->middleware('auth')
+    // ->namespace('Admin')
+    ->group(function(){
 
-Route::get('/admin/categoria/novo-form', [
-    'as' => 'categoria-novo-form',
-    'uses' => 'CategoriaController@novoForm'
-]);
+    Route::get('/categorias', [
+        'as' => 'categoria-listar',
+        'uses' => 'CategoriaController@listar'
+    ]);
 
-Route::get('/admin/categoria/editar-form/{id}', [
-    'as' => 'categoria-editar-form',
-    'uses' => 'CategoriaController@editarForm'
-]);
+    Route::get('/categoria/novo-form', [
+        'as' => 'categoria-novo-form',
+        'uses' => 'CategoriaController@novoForm'
+    ]);
 
-Route::get('/admin/categoria/apagar/{id}', [
-    'as' => 'categoria-apagar',
-    'uses' => 'CategoriaController@apagar'
-]);
+    Route::get('/categoria/editar-form/{id}', [
+        'as' => 'categoria-editar-form',
+        'uses' => 'CategoriaController@editarForm'
+    ]);
 
-Route::post('/admin/categoria/novo', [
-    'as' => 'categoria-novo',
-    'uses' => 'CategoriaController@novo'
-]);
-Route::post('/admin/categoria/editar/{id}', [
-    'as' => 'categoria-editar',
-    'uses' => 'CategoriaController@editar'
-]);
+    Route::get('/categoria/apagar/{id}', [
+        'as' => 'categoria-apagar',
+        'uses' => 'CategoriaController@apagar'
+    ]);
 
-Route::get('/admin/postagens', [
-    'as' => 'postagem-listar',
-    'uses' => 'PostagemController@listar'
-]);
+    Route::post('/categoria/novo', [
+        'as' => 'categoria-novo',
+        'uses' => 'CategoriaController@novo'
+    ]);
+    Route::post('/categoria/editar/{id}', [
+        'as' => 'categoria-editar',
+        'uses' => 'CategoriaController@editar'
+    ]);
 
-Route::get('/admin/postagem/novo-form', [
-    'as' => 'postagem-novo-form',
-    'uses' => 'PostagemController@novoForm'
-]);
+    Route::get('/postagens', [
+        'as' => 'postagem-listar',
+        'uses' => 'PostagemController@listar'
+    ]);
 
-Route::post('/admin/postagem/novo', [
-    'as' => 'postagem-novo',
-    'uses' => 'PostagemController@novo'
-]);
+    Route::get('/postagem/novo-form', [
+        'as' => 'postagem-novo-form',
+        'uses' => 'PostagemController@novoForm'
+    ]);
+
+    Route::post('/postagem/novo', [
+        'as' => 'postagem-novo',
+        'uses' => 'PostagemController@novo'
+    ]);
+    
+});
+
+
+Auth::routes();
+
+# Route::get('/home', 'HomeController@index')->name('home');
