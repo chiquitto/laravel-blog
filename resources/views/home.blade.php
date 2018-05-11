@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Bem vindo {{ \Illuminate\Support\Facades\Auth::user()->name }}
                 </div>
             </div>
         </div>

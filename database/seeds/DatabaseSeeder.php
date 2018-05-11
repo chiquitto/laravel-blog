@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Blog\Categoria;
 use Blog\Postagem;
+use Blog\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CategoriaTableSeeder::class);
         $this->call(PostagemTableSeeder::class);
+        $this->call(UsuarioTableSeeder::class);
     }
 }
 
@@ -58,4 +60,14 @@ class PostagemTableSeeder extends Seeder {
         $postagem1->save();
     }
 
+}
+
+class UsuarioTableSeeder extends Seeder {
+    public function run() {
+        $usuario = new User();
+        $usuario->name = 'Alisson Chiquitto';
+        $usuario->email = 'chiquitto@gmail.com';
+        $usuario->password = \Illuminate\Support\Facades\Hash::make('123456');
+        $usuario->save();
+    }
 }

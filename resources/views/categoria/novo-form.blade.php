@@ -1,23 +1,37 @@
-<h1>Nova categoria</h1>
+@extends('layouts.app')
 
-@if (count($errors) > 0)
-<ul>
-    @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-    @endforeach
-</ul>
-@endif
+@section('content')
 
-<form method="post" action="{{ route('categoria-novo') }}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
 
-    <input
-            type="hidden"
-            name="_token"
-            value="{{{ csrf_token() }}}" />
+                <h1>Nova categoria</h1>
 
-    <p>Categoria: <input type="text" name="categoria" value="{{ old('categoria') }}"></p>
-    <p>Descrição: <textarea name="descricao">{{ old('descricao') }}</textarea></p>
+                @if (count($errors) > 0)
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
 
-    <input type="submit" value="Salvar">
+                <form method="post" action="{{ route('categoria-novo') }}">
 
-</form>
+                    <input
+                            type="hidden"
+                            name="_token"
+                            value="{{{ csrf_token() }}}"/>
+
+                    <p>Categoria: <input type="text" name="categoria" value="{{ old('categoria') }}"></p>
+                    <p>Descrição: <textarea name="descricao">{{ old('descricao') }}</textarea></p>
+
+                    <input type="submit" value="Salvar">
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+@endsection
