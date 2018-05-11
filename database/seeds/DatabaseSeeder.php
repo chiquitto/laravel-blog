@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(UsuarioTableSeeder::class);
         $this->call(CategoriaTableSeeder::class);
         $this->call(PostagemTableSeeder::class);
-        $this->call(UsuarioTableSeeder::class);
     }
 }
 
@@ -56,6 +56,7 @@ class PostagemTableSeeder extends Seeder {
             'titulo' => 'Jogos de computador facilitam o aprendizado',
             'texto' => 'Pesquisa aponta que jogos de computador facilitam o aprendizado',
             'situacao' => Postagem::SITUACAO_ATIVO,
+            'idUsuario' => 1
         ]);
         $postagem1->save();
     }

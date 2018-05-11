@@ -6,6 +6,7 @@ use Blog\Categoria;
 use Blog\Http\Requests\PostagemRequest;
 use Blog\Postagem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostagemController extends Controller
 {
@@ -35,6 +36,7 @@ class PostagemController extends Controller
         $postagem->setAttribute('idCategoria', $request->get('idCategoria'));
         $postagem->setAttribute('titulo', $request->get('titulo'));
         $postagem->setAttribute('texto', $request->get('texto'));
+        $postagem->setAttribute('idUsuario', Auth::user()->id);
         $postagem->save();
 
         return redirect()->route('postagem-listar');
